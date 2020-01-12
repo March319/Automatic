@@ -60,3 +60,5 @@ class AddMember(BasePage):
 
     def save_and_continue(self):
         pass
+        # 保存并添加
+        print(123)
