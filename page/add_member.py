@@ -25,9 +25,6 @@ class AddMember(BasePage):
         self.driver.find_element(By.ID, "memberAdd_acctid").click()
         self.driver.find_element(By.ID, "memberAdd_acctid").send_keys("00001")
         # 选择性别
-
-        # TODO待添加代码
-
         # 添加手机号码
         self.driver.find_element(By.ID, "memberAdd_phone").click()
         self.driver.find_element(By.ID, "memberAdd_phone").send_keys("13456789999")
@@ -49,8 +46,6 @@ class AddMember(BasePage):
         self.driver.find_element(By.ID, "memberAdd_title").send_keys("CEO")
 
         # self.driver.find_element(By.CSS_SELECTOR, ".member_edit_item:nth-child(1) .ww_label > span").click()
-
-        # TODO 上传头像
 
         # 保存
         self.driver.find_element(By.CSS_SELECTOR, ".member_colRight_operationBar:nth-child(3) > .js_btn_save").click()
