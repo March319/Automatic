@@ -7,3 +7,6 @@ class TestAddMember:
 
     def test_save(self):
         self.Main.add_member().save()
+
+    def test_cancel(self):
+        pass
