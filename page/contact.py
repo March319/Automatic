@@ -1,15 +1,11 @@
 import time
-
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-
 from test_wework.page.base_page import BasePage
 
 
-class AddMember(BasePage):
+class Contact(BasePage):
 
-    def save(self):
+    def add_member(self):
         # element_add_user = ()
         # self._element_wait(10, element_add_user)
         time.sleep(3)
@@ -48,12 +44,12 @@ class AddMember(BasePage):
         # self.driver.find_element(By.CSS_SELECTOR, ".member_edit_item:nth-child(1) .ww_label > span").click()
 
         # 保存
-        self.driver.find_element(By.CSS_SELECTOR, ".member_colRight_operationBar:nth-child(3) > .js_btn_save").click()
-        # 判断保存成功
-        toast_loc = (By.XPATH, './/*[@class="ww_tip success"]')
-        # toast_loc = (By.CSS_SELECTOR, ".ww_tip success")
-        WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located(toast_loc))
-        # 增加断言判断保存成功
+        # self.driver.find_element(By.CSS_SELECTOR, ".member_colRight_operationBar:nth-child(3) > .js_btn_save").click()
+        # # 判断保存成功
+        # toast_loc = (By.XPATH, './/*[@class="ww_tip success"]')
+        # # toast_loc = (By.CSS_SELECTOR, ".ww_tip success")
+        # WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located(toast_loc))
+        # # 增加断言判断保存成功
 
     def cancel(self):
         pass
@@ -62,3 +58,32 @@ class AddMember(BasePage):
         pass
         # 保存并添加
         print(123)
+
+    def add_img(self):
+        self.driver.find_element(By.CSS_SELECTOR, '#js_upload_file').click()
+        self.driver.switch_to.default_content()
+        time.sleep(1)
+        self.driver.find_element(By.CSS_SELECTOR, '.js_file').send_keys(r"C:\Users\Alice\Desktop\g.jpg")
+        self.driver.find_element(By.CSS_SELECTOR, '.qui_btn.ww_btn.ww_btn_Blue.js_save').click()
+        # self.driver.find_element(By.CSS_SELECTOR, '.js_no_img').click()
+
+    def modify_dept(self):
+        self.driver.find_element(By.CSS_SELECTOR, '.js_show_party_selector').click()
+        time.sleep(1)
+        self.driver.switch_to.default_content()
+        # time.sleep(3)
+        # self.driver.find_element(By.CSS_SELECTOR, '.jstree-children:nth-child(1)').click()
+        time.sleep(1)
+        # 删除部门
+        self.driver.find_element(By.CSS_SELECTOR, '.ww_commonImg.ww_commonImg_DeleteItem.js_delete').click()
+        element = self.driver.find_element(By.CSS_SELECTOR,
+                                           '.js_left_col.jstree.jstree-2.jstree-default >ul>li>ul>li:nth-child(3)')
+        element.click()
+        text = element.get_attribute('textContent')
+        children = self.driver.find_elements(By.CSS_SELECTOR,
+                                             '.js_left_col.jstree.jstree-2.jstree-default >ul>li>ul>li')
+        print(len(children))
+        print(text)
+
+        # self.driver.find_element(By.CSS_SELECTOR, '.js_submit').click()
+        # self.driver.find_element(By.LINK_TEXT, '总裁办').click()
