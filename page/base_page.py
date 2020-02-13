@@ -9,6 +9,7 @@ class BasePage:
     def __init__(self, driver: WebDriver = None):
         if driver is None:
             chrome_option = Options()
+            # chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\selenium\AutomationProfile"
             chrome_option.debugger_address = "127.0.0.1:9222"
             self.driver = webdriver.Chrome(options=chrome_option)
             self.driver.implicitly_wait(5)  # seconds
