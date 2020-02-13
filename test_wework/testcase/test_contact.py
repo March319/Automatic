@@ -1,6 +1,6 @@
 import pytest
 
-from test_wework.page.contact import Contact
+from page.contact import Contact
 
 
 class TestAddMember:

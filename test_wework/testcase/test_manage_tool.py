@@ -1,6 +1,6 @@
 import pytest
 
-from test_wework.page.manage_tool import ManageTool
+from page.manage_tool import ManageTool
 
 
 class TestAddMember:

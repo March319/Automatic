@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from test_wework.page.contact import Contact
-from test_wework.page.base_page import BasePage
-from test_wework.page.manage_tool import ManageTool
+from page.contact import Contact
+from page.base_page import BasePage
+from page.manage_tool import ManageTool
 
 
 class Main(BasePage):
