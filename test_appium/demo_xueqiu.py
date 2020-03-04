@@ -11,7 +11,7 @@ class TestXueQiu:
         caps["appPackage"] = "com.xueqiu.android"
         caps["appActivity"] = ".view.WelcomeActivityAlias"
         caps["noReset"] = True
-        caps["dontStopAppOnReset"] = True
+        # caps["dontStopAppOnReset"] = True
         caps["skipServerInstallation"] = True
         self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         self.driver.implicitly_wait(40)
