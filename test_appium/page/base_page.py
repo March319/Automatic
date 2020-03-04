@@ -12,12 +12,13 @@ class BasePage:
         (By.ID, 'tv_agree'),
         (By.XPATH, '//*[@text="确定"]'),
         (By.ID, 'image_cancel'),
-        (By.XPATH, '//*[@text="下次再说"]')
+        (By.XPATH, '//*[@text="下次再说"]'),
+        (By.ID, 'ib_close')
     ]
     _error_max = 10
     _error_count = 0
 
-    _params={}
+    _params = {}
 
     def __init__(self, driver: WebDriver = None):
         self._driver = driver
@@ -116,7 +117,7 @@ class BasePage:
                     elif action == "attribute":
                         element.get_attribute(step["value"])
                     elif action in ["send", "input"]:
-                        content: str=step["value"]
+                        content: str = step["value"]
                         for key in self._params.keys():
-                            content=content.replace("{%s}" %key, self._params[key])
+                            content = content.replace("{%s}" % key, self._params[key])
                         element.send_keys(content)

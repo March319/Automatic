@@ -4,16 +4,18 @@ from selenium.webdriver.common.by import By
 from test_appium.page.base_page import BasePage
 from test_appium.page.profile import Profile
 from test_appium.page.search import Search
+from test_appium.page.stock import Stocks
 
 
 class Main(BasePage):
     def goto_search_page(self):
-        # self.find(MobileBy.ID, "tv_search").click()
-        self.steps("../page/steps.yaml")
+        self.find(MobileBy.ID, "tv_search").click()
+        # self.steps("../page/steps.yaml")
         return Search(self._driver)
 
     def goto_stocks(self):
-        pass
+        self.find(By.XPATH, "//*[@text='行情' and contains(@resource-id, 'tab')]").click()
+        return Stocks(self._driver)
 
     def goto_trade(self):
         pass

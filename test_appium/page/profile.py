@@ -9,7 +9,8 @@ class Profile(BasePage):
         self.find(By.ID, "login_account").send_keys(phone)
         self.find(By.ID, "login_password").send_keys(password)
         self.find(By.ID, "button_next").click()
-        msg=self.find(By.ID, "md_content").text
+        msg = self.find(By.ID, "md_content").text
         self.find(By.ID, 'md_buttonDefaultPositive').click()
-        #self.find(By.XPATH, "//*[@class='android.widget.Toast']").text
+        # self.find(By.XPATH, "//*[@class='android.widget.Toast']").text
+        print(msg)
         return msg

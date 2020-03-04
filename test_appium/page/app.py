@@ -25,11 +25,8 @@ class App(BasePage):
             # caps["resetKeyboard"] = True
             # caps["skipServerInstallation"] = True
             caps["chromedriverExecutable"] = r"D:\chromedriver_V2.20.exe"
-
-            # caps['avd'] = 'Pixel_2_API_23'
-
             self._driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
-            self._driver.implicitly_wait(5)
+            self._driver.implicitly_wait(10)
         else:
             print(self._driver)
             # todo:
@@ -47,7 +44,7 @@ class App(BasePage):
         # todo: wait main page
         def wait_load(driver):
             print(datetime.datetime.now())
-            source=self._driver.page_source
+            source = self._driver.page_source
 
             if "我的" in source:
                 return True
