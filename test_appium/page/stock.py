@@ -10,10 +10,12 @@ class Stocks(BasePage):
     _add_stocks_locator = (MobileBy.ID, "follow_btn")
     _close_locator = (MobileBy.ID, "action_close")
 
-    def search_stocks(self):
+    def search_stocks(self, stock_name):
+        _result_locator = (By.XPATH, "//*[contains(@resource-id, 'listview')]//*[@text='%s']" % stock_name)
+        print(self._search_locator)
         self.find(self._search_locator).click()
-        self.find(self._search_input_locator).send_keys("JD")
-        self._driver.find_element(By.XPATH, "//*[contains(@resource-id, 'listview')]//*[@text='JD']").click()
+        self.find(self._search_input_locator).send_keys(stock_name)
+        self.find(_result_locator).click()
         return self
 
     def add_stocks(self):
